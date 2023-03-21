@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head.ejs') %>
+  <!-- list of functions  -->
+  <%- include('../partials/functions.ejs') %> 
+</head>
+<body class="container">
+  <header>
+    <%- include('../partials/header.ejs') %>
+  </header>
+  
+  <main>
+    
+    <a href="/add-expense" role="button" class="btn btn-secondary btn-sm" >+ Add expense</a>
+
+    <!-- Render table with data  -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th class="mb-2">Price</th>
+          <th>Month</th>
+          <th>Year</th>
+          <th>Category</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- include('../partials/table.ejs') %>
+      </tbody>
+    </table>
+
+  <script>
+    logMonth = function(value){
+      console.log(value);
+    }
+  </script>
+
+  <% if (typeof resLength !== 'undefined' && resLength === 20) { %>
+    <form action="/get-expenses" method="GET">
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary btn-sm" name="paginator" value="<%= paginator %>">Load more</button>
+      </div>
+    </form>
+   
+  <% } %>
+
+
+  </main>
+  
+</body>
+
+</html>

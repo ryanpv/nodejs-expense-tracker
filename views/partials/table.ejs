@@ -1,0 +1,21 @@
+<% typeof tableData !== 'undefined' && tableData.forEach((tableItem) => { %>
+  <tr>
+    <td><%= tableItem.item %></td>
+    <td><%= tableItem.price %></td>
+    <td><%= tableItem.purchaseMonth %></td>
+    <td><%= tableItem.purchaseYear %></td>
+    <td><%= tableItem.category %></td>
+    <td>
+      <form action=<%= `/delete-expense/${ tableItem._id }` %> method="GET">
+        <button class="btn btn-danger btn-sm" role="button" value=<%= tableItem._id %> onclick=<%= "getItemId(this.value)" %>>del</button>
+      </form>
+    </td>
+    <td>
+      <form action=<%= `/update-item-form/${ tableItem._id }` %> method="GET">
+        <button class="btn btn-secondary btn-sm" role="button" value=<%= tableItem._id %> onclick=<%= "getItemId(this.value)" %>>update</button>
+      </form>
+    </td>
+
+  </tr>
+<% }); %>
+

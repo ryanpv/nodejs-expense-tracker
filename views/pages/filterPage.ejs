@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head.ejs') %>
+  <!-- list of functions  -->
+  <%- include('../partials/functions.ejs') %> 
+</head>
+<body class="container">
+  <header>
+    <%- include('../partials/header.ejs') %>
+  </header>
+
+  
+  <main>
+    <% if (typeof expenseTotal !== 'undefined' && typeof categoryQuery !== 'undefined') { %>
+     <h2 class="mb-3">Total Spending for 
+      <strong>
+        <%= categoryQuery !== 'select' && monthQuery !== 'select' ? `${ monthQuery } : ${ categoryQuery }` : monthQuery !== 'select' ? monthQuery : categoryQuery%>
+      </strong>: $<%= expenseTotal.toFixed(2) %></h2>
+    <% } %>
+
+    <form action="/monthly-expenses" method="GET">
+      <label for="month">Month:</label>
+      <select name="month" id="month">
+        <option value="select">select...</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+      </select>
+      <label for="category">Category:</label>
+      <select name="category" id="category">
+        <option value="select">select...</option>
+        <option value="Housing">Housing</option>
+        <option value="Transportation">Transportation</option>
+        <option value="Food">Food</option>
+        <option value="Utilities">Utilities</option>
+        <option value="Investments">Investments</option>
+        <option value="Savings">Savings</option>
+        <option value="Personal">Personal</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Miscellaneous">Miscellaneous</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Render table with data  -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th class="mb-2">Price</th>
+          <th>Month</th>
+          <th>Category</th>
+          <th>Object ID</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- include('../partials/table.ejs') %>
+      </tbody>
+    </table>
+
+    <!-- <ul>
+      <li>January</li>
+      <li>February</li>
+      <li>March</li>
+      <li>April</li>
+      <li>May</li>
+      <li>June</li>
+      <li>July</li>
+      <li>August</li>
+      <li>September</li>
+      <li>October</li>
+      <li>November</li>
+      <li>December</li>
+    </ul> -->
+
+  </main>
+
+  
+  <script>
+    logMonth = function(value){
+      console.log(value);
+    }
+console.log('curr query: ', document.querySelector('#month').selectedIndex);
+    console.log('query value: ', <%= monthQuery === 'select' ? categoryQuery : monthQuery %>)
+  </script>
+
+
+  
+</body>
+<!-- <% testFunc('function test from included ejs file') %> -->
+</html>

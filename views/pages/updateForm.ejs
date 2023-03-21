@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head.ejs') %>
+</head>
+<body class="container">
+  <header>
+    <%- include('../partials/header.ejs') %>
+  </header>
+  <!-- <h1>Update Item - <%= itemData.item %>: <%= itemData._id %>"</h1> -->
+  <h1>Update Item - <%= itemData.item %> (<%= itemData.purchaseMonth %> <%= itemData.purchaseYear %>)</h1>
+  <!-- <form onsubmit="testfunc()" id="expenseForm"> -->
+  <form action="<%= `/update-item/${ itemData._id }` %>" method="POST" id="expenseForm">
+    <div class="form-group">
+      <label for="purchaseInput">Purchase</label>
+      <input name="purchaseInputName" value="<%= itemData.item %>" type="text" class="form-control" id="purchaseInput" aria-describedby="purchaseInput" placeholder="Enter purchase">
+      <small id="purchaseHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class  ="form-group">
+      <label for="priceInput">Price</label>
+      <input name="priceInputName" value="<%= itemData.price %>" type="number" class="form-control" id="priceInput" placeholder="Price" step="0.01" min="0">
+    </div>
+    <div class="form-group">
+      <label for="monthInput">Month</label>
+      <!-- <input name="monthInputName" value="<%= itemData.purchaseMonth %>" type="text" class="form-control" id="monthInput" placeholder="Month"> -->
+      <select class="form-select" aria-label="Default select example" name="monthInputName" id="monthInput">
+        <option selected="<%= itemData.purchaseMonth %>"><%= itemData.purchaseMonth %></option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+      </select>
+    </div>
+    <div class  ="form-group">
+      <label for="yearInput">Year</label>
+      <input name="yearInputName" value="<%= itemData.purchaseYear %>" type="number" class="form-control" id="yearInput" placeholder="Year" min="1900" max="2999">
+    </div>
+    <div class="form-group">
+      <label for="categoryInput">Category</label>
+      <!-- <input name="categoryInputName" value="<%= itemData.category %>" type="text" class="form-control" id="categoryInput" placeholder="Category"> -->
+      <select class="form-select" aria-label="Default select example" name="categoryInputName" id="categoryInput">
+        <option selected="<%= itemData.category %>"><%= itemData.category %></option>
+        <option value="Housing">Housing</option>
+        <option value="Transportation">Transportation</option>
+        <option value="Food">Food</option>
+        <option value="Utilities">Utilities</option>
+        <option value="Investments">Investments</option>
+        <option value="Savings">Savings</option>
+        <option value="Personal">Personal</option>
+        <option value="Miscellaneous">Miscellaneous</option>
+      </select>
+    </div>
+    <input type="submit" value="Submit">
+    <input type="reset">
+    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+  </form>
+  
+</body>
+
+
+</html>
