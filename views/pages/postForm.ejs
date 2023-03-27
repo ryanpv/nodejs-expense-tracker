@@ -11,18 +11,18 @@
   <form action="/form-post" method="POST" id="expenseForm">
     <div class="form-group">
       <label for="purchaseInput">Purchase</label>
-      <input name="purchaseInputName" type="text" class="form-control" id="purchaseInput" aria-describedby="purchaseInput" placeholder="Enter purchase">
+      <input required name="purchaseInputName" type="text" class="form-control" id="purchaseInput" aria-describedby="purchaseInput" placeholder="Enter purchase">
       <small id="purchaseHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class  ="form-group">
       <label for="priceInput">Price</label>
-      <input name="priceInputName" type="number" class="form-control" id="priceInput" placeholder="Price" step="0.01" min="0">
+      <input required name="priceInputName" type="number" class="form-control" id="priceInput" placeholder="Price" step="0.01" min="0">
     </div>
     <div class="form-group">
       <label for="monthInput">Month</label>
       <!-- <input name="monthInputName" type="text" class="form-control" id="monthInput" placeholder="Month"> -->
-      <select class="form-select" aria-label="Default select example" name="monthInputName" id="monthInput">
-        <option selected="select">select...</option>
+      <select required class="form-select" aria-label="Default select example" name="monthInputName" id="monthInput">
+        <option value="">select...</option>
         <option value="January">January</option>
         <option value="February">February</option>
         <option value="March">March</option>
@@ -39,13 +39,13 @@
     </div>
     <div class  ="form-group">
       <label for="yearInput">Year</label>
-      <input name="yearInputName" type="number" class="form-control" id="yearInput" placeholder="Year" min="1900" max="2999">
+      <input required name="yearInputName" type="number" class="form-control" id="yearInput" placeholder="Year" min="1900" max="2999">
     </div>
     <div class="form-group">
       <label for="categoryInput">Category</label>
       <!-- <input name="categoryInputName" type="text" class="form-control" id="categoryInput" placeholder="Category"> -->
       <select class="form-select" aria-label="Default select example" name="categoryInputName" id="categoryInput">
-        <option selected="select">select...</option>
+        <option value="">select...</option>
         <option value="Housing">Housing</option>
         <option value="Transportation">Transportation</option>
         <option value="Food">Food</option>
