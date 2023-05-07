@@ -54,5 +54,6 @@ jobs:
         uses: wearerequired/lint-action@v2
         with:
           eslint: true
-        continue-on-error: false
+          continue_on_error: false
+
 
