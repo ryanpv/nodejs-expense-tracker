@@ -4,6 +4,7 @@ import express from 'express';
 import { db_conn, getDb, mockUri } from './db/db_connect.js';
 import { ObjectId } from 'mongodb';
 import NodeCache from 'node-cache';
+import path from "path"
 
 // process.env.NODE_ENV = 'prod'
 console.log('current ENV: ', process.env.NODE_ENV);
@@ -68,7 +69,7 @@ app.get('/get-expenses', async (req, res) => {
   });
   // res.send(findData)
 });
-a
+
 // POST NEW EXPENSE
 app.post('/form-post', async (req, res) => {
   cache.del('testKey')
