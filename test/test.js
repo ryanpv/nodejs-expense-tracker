@@ -5,7 +5,6 @@ import { getDb, mockUri, mockServer } from '../db/db_connect.js'
 import { expect } from 'chai'
 
 
-
 describe("GET /test-query", () => {
   it("respond wtih Hello World", (done) => {
     supertest(app).get("/test-query").expect(200).expect("Hello World", done);

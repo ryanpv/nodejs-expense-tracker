@@ -19,10 +19,40 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+
+      - name: Latest NPM install
+        run: npm i -g npm@latest
       
       - name: Dependencies install
-        run: npm install 
+        uses: bahmutov/npm-install@v1
 
       - name: Run tests
         run: npm run test
         shell: bash
+
+    lint:
+      needs: t
+      name: Linting and minting
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Checkout repo
+          uses: actions/checkoug@v3
+
+        - name: Setup node
+          uses: actions/setup-node@v2.1.5
+          with:
+            node-version: 16
+        
+        - name: Latest NPM install
+          run: npm i -g npm@latest
+
+        - name: Dependencies install
+          uses: bahmutov/npm-install@v1
+
+        - name: Lint code
+          uses: wearerequired/lint-action@v2
+          with:
+            eslint: true
+            prettier: true
+
