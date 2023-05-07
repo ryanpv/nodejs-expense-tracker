@@ -6,7 +6,7 @@ import { ObjectId } from 'mongodb';
 import NodeCache from 'node-cache';
 import connect from './db/mockDb.js';
 
-process.env.NODE_ENV = 'prod'
+// process.env.NODE_ENV = 'prod'
 console.log('current ENV: ', process.env.NODE_ENV);
 const PORT = 3001
 const app = express();
