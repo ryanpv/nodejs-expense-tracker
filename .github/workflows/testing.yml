@@ -49,6 +49,9 @@ jobs:
 
         - name: Dependencies install
           uses: bahmutov/npm-install@v1
+        
+        - name: Install ESLint and Prettier
+          run: npm install eslint prettier
 
         - name: Lint code
           uses: wearerequired/lint-action@v2
