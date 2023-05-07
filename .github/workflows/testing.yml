@@ -52,6 +52,9 @@ jobs:
       
       - name: Install ESLint and Prettier
         run: npm install eslint prettier
+      
+      - name: ESLint config
+        run: npm init @eslint/config
 
       - name: Lint code
         uses: wearerequired/lint-action@v2
