@@ -4,7 +4,6 @@ import express from 'express';
 import { db_conn, getDb, mockUri } from './db/db_connect.js';
 import { ObjectId } from 'mongodb';
 import NodeCache from 'node-cache';
-import connect from './db/mockDb.js';
 
 // process.env.NODE_ENV = 'prod'
 console.log('current ENV: ', process.env.NODE_ENV);
@@ -98,11 +97,11 @@ app.post('/form-post', async (req, res) => {
       res.redirect('/add-expense');
     } else { 
       res.status(400).send({ message: 'unsuccessful post' })
-    }; 
+    }
   } catch (err) {
     console.log('post error', err);
     res.status(500)
-  };
+  }
 });
 
 // DELETE SPECIFIC EXPENSE
@@ -131,7 +130,7 @@ app.get('/delete-expense/:id', async (req, res) => {
     }
   } catch (err) {
     console.log('error', err);
-  };
+  }
 
   });
 
@@ -275,7 +274,7 @@ app.get('/monthly-expenses', async (req, res) => {
     });
   } else {
     console.log('some error with monthly filter query');
-  };
+  }
     
 });
 
