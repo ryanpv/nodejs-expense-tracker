@@ -31,7 +31,7 @@ jobs:
         shell: bash
 
   lint:
-    needs: t
+    needs: tests
     name: Linting and minting
     runs-on: ubuntu-latest
 
