@@ -1,0 +1,24 @@
+name: "Code Testing"
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    name: Test app
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkoug@v3
+      
+      - name: Dependencies install
+        run: npm install 
+
+      - name: Run tests
+        run: npm run test
