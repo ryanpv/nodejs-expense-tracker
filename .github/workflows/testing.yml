@@ -50,8 +50,8 @@ jobs:
       - name: Dependencies install
         uses: bahmutov/npm-install@v1
       
-      # - name: Install ESLint and Prettier
-      #   run: npm install eslint prettier
+      - name: Install ESLint
+        run: npm install eslint
       
       - name: ESLint config
         run: npm init @eslint/config
@@ -60,5 +60,4 @@ jobs:
         uses: wearerequired/lint-action@v2
         with:
           eslint: true
-          prettier: true
 
