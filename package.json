@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "mocha ./test/* --exit",
-    "lint": "eslint"
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
