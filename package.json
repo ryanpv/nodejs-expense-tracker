@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha ./test/* --exit"
+    "test": "mocha ./test/* --exit",
+    "lint": "eslint"
   },
   "keywords": [],
   "author": "",

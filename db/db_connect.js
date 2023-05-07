@@ -1,6 +1,6 @@
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient } from 'mongodb';
 import { MongoMemoryServer } from "mongodb-memory-server";
-const dbUri = process.env.DB_URI;
+// const dbUri = process.env.DB_URI;
 // const client = new MongoClient(dbUri, {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,

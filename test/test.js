@@ -1,7 +1,7 @@
 import app from '../server.js';
 import supertest from 'supertest';
-import assert from 'assert';
-import { getDb, mockUri, mockServer } from '../db/db_connect.js'
+import { describe, it, } from 'mocha';
+import { getDb, mockUri } from '../db/db_connect.js'
 import { expect } from 'chai'
 
 
@@ -17,7 +17,7 @@ describe("GET /get-expenses", () => {
     supertest(app)
       .get("/get-expenses")
       .expect(200)
-      .end(function(err, res) {
+      .end(function(err) {
         if (err) done(err);
         done()
       });
@@ -34,7 +34,7 @@ describe("POST request to /form-post", () => {
       category: "Mock Category"
     };
 
-    const test = await supertest(app)
+    await supertest(app)
       .post('/form-post')
       .send(mockObj)
       .expect(200)
@@ -45,7 +45,7 @@ describe("POST request to /form-post", () => {
       .post('/form-post')
       .send() // can pass {} or nothing at all
       .expect(400)
-      .end(function(err, res) {
+      .end(function(err) {
         if (err) done(err);
         done();
       });
@@ -138,7 +138,7 @@ describe("GET req for month/category filter", () => {
       category: "Mock Category"
     };
 
-    const mockItemPost = db_connect.db('test_db').collection('spending_list').insertOne(mockItem);
+    db_connect.db('test_db').collection('spending_list').insertOne(mockItem);
 
     const res = await supertest(app)
       .get('/monthly-expenses')
