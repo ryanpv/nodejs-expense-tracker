@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+env:
+  NODE_ENV: test
+
 jobs:
   tests:
     name: Test app

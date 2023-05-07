@@ -17,7 +17,7 @@ describe("GET /get-expenses", () => {
 
     supertest(app)
       .get("/get-expenses")
-      .expect(300)
+      .expect(200)
       .end(function(err, res) {
         if (err) done(err);
         done()
